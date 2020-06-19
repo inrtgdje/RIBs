@@ -24,7 +24,3 @@ protocol LoggedInDependencyOffGame: Dependency {
     // for the OffGame scope.
 }
 
-extension LoggedInComponent: OffGameDependency {
-
-    // TODO: Implement properties to provide for OffGame scope.
-}
