@@ -63,7 +63,10 @@ final class LoggedInInteractor: Interactor, LoggedInInteractable {
 
     // MARK: - TicTacToeListener
 
-    func gameDidEnd() {
+    func gameDidEnd(withWinner winner: PlayerType?) {
+        if let winner = winner {
+            mutableScoreStream.updateScore(withWinner: winner)
+        }
         router?.routeToOffGame()
     }
 }
