@@ -15,7 +15,34 @@
 //
 
 import RIBs
-
+import RxSwift
 public class LaunchGameWorkflow: Workflow<RootActionableItem> {
-    init(url: URL) { super.init() }
+    init(url: URL) { super.init()
+        
+        let gameId = parseGameId(form: url)
+        
+        self
+            .onStep { (rootItem: RootActionableItem) -> Observable<(LoggedInActionableItem, ())> in
+            rootItem.waitForLogin()
+        }
+        .onStep { (loggedInItem, _) -> Observable<(LoggedInActionableItem, ())> in
+            loggedInItem.launchGame(with: gameId)
+        }
+        .commit()
+        
+    }
+    
+    
+    private func parseGameId(form url: URL) -> String? {
+        let compoents = URLComponents(string: url.absoluteString)
+        let items = compoents?.queryItems ?? []
+        for item in items {
+            if item.name == "gameId" {
+                return item.value
+            }
+        }
+        
+        return nil
+    }
+
 }

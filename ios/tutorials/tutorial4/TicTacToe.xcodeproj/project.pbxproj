@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57D8A12924A05B0100171F0E /* LoggedInActionableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D8A12824A05B0100171F0E /* LoggedInActionableItem.swift */; };
 		7EDD59501FA13579005EC8B2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EDD594F1FA13579005EC8B2 /* Default-568h@2x.png */; };
 		AEFA38604D7D1E4A08E9A7FA /* Pods_TicTacToe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99EABB5C8D25341027C05C5 /* Pods_TicTacToe.framework */; };
 		E90A68661FB7052F00D303EE /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C86D9F1FA389F400B61DF6 /* Stub.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57D8A12824A05B0100171F0E /* LoggedInActionableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInActionableItem.swift; sourceTree = "<group>"; };
 		7EDD594F1FA13579005EC8B2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		833B15CABE3CBE09720A0409 /* Pods-TicTacToe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicTacToe/Pods-TicTacToe.debug.xcconfig"; sourceTree = "<group>"; };
 		A791EBDAD202886E66137B9C /* Pods-TicTacToe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToe.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicTacToe/Pods-TicTacToe.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				E9C86DB81FA38D4700B61DF6 /* RootActionableItem.swift */,
+				57D8A12824A05B0100171F0E /* LoggedInActionableItem.swift */,
 			);
 			path = ActionableItems;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				E9C86DA31FA38A0A00B61DF6 /* RandomWinViewController.swift in Sources */,
 				E9C86DA21FA38A0A00B61DF6 /* RandomWinRouter.swift in Sources */,
 				E9CB1D521F97303800D84847 /* AppDelegate.swift in Sources */,
+				57D8A12924A05B0100171F0E /* LoggedInActionableItem.swift in Sources */,
 				E9CB1D681F9730F300D84847 /* TicTacToeInteractor.swift in Sources */,
 				E9C86DB01FA38B7D00B61DF6 /* BasicScoreBoardBuilder.swift in Sources */,
 				E9CB1D5B1F9730E700D84847 /* LoggedOutRouter.swift in Sources */,

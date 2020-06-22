@@ -24,7 +24,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
 
     /// The window.
     public var window: UIWindow?
-
+    private var urlHandler:UrlHandler?
     /// Tells the delegate that the launch process is almost done and the app is almost ready to run.
     ///
     /// - parameter application: Your singleton app object.
@@ -36,14 +36,28 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
 
-        let launchRouter = RootBuilder(dependency: AppComponent()).build()
-        self.launchRouter = launchRouter
-        launchRouter.launch(from: window)
+        let result = RootBuilder(dependency: AppComponent()).build()
+        self.launchRouter = result.launcherRouter
+        launchRouter?.launch(from: window)
 
         return true
     }
 
+    
+    
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return true
+    }
+    
+    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return true
+    }
     // MARK: - Private
 
     private var launchRouter: LaunchRouting?
+}
+
+
+protocol UrlHandler:class {
+    func handle(_ url:URL)
 }
