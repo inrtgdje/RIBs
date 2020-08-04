@@ -15,7 +15,7 @@
 //
 
 import RxSwift
-
+import RxRelay
 public struct Score {
     public let player1Score: Int
     public let player2Score: Int
@@ -38,7 +38,7 @@ public class ScoreStreamImpl: MutableScoreStream {
     public init() {}
 
     public var score: Observable<Score> {
-        return variable
+        return behavior
             .asObservable()
             .distinctUntilChanged { (lhs: Score, rhs: Score) -> Bool in
                 Score.equals(lhs: lhs, rhs: rhs)
@@ -47,7 +47,7 @@ public class ScoreStreamImpl: MutableScoreStream {
 
     public func updateScore(with winner: PlayerType) {
         let newScore: Score = {
-            let currentScore = variable.value
+            let currentScore = behavior.value
             switch winner {
             case .player1:
                 return Score(player1Score: currentScore.player1Score + 1, player2Score: currentScore.player2Score)
@@ -55,10 +55,11 @@ public class ScoreStreamImpl: MutableScoreStream {
                 return Score(player1Score: currentScore.player1Score, player2Score: currentScore.player2Score + 1)
             }
         }()
-        variable.value = newScore
+        
+        behavior.accept(newScore)
     }
 
     // MARK: - Private
 
-    private let variable = Variable<Score>(Score(player1Score: 0, player2Score: 0))
+    private let behavior = BehaviorRelay<Score>(value: Score(player1Score: 0, player2Score: 0))
 }
